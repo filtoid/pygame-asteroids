@@ -1,19 +1,27 @@
 import pygame
+from player import Player
+from asteroid import Asteroid
 from pygame.locals import KEYDOWN
 
-def run():
-    pygame.init()
-    screen = pygame.display.set_mode([320, 320])
-    background = pygame.Surface(screen.get_size())
 
-    b = pygame.sprite.Sprite() # create sprite
-    b.image = pygame.image.load("asteroid.png").convert() # load ball image
-    b.rect = b.image.get_rect() # use image extent values
-    b.rect.topleft = [0, 0] # put the ball in the top left corner
-    screen.blit(b.image, b.rect)
+Screen_Width = 600
+Screen_Height = 480
 
+
+def update():
+    # Here we update the game to move elements
+    player.update()
+    asteroid.update()
+
+
+def draw(screen):
+    # Here we draw each component to the screen
+    screen.fill([0, 0, 0])
+    player.draw(screen)
+    asteroid.draw(screen)
     pygame.display.update()
 
+def run():
     quit = False
     while quit == False:
         for event in pygame.event.get():
@@ -21,8 +29,21 @@ def run():
                 pass
             if event.type == pygame.QUIT:
                 quit = True
+        update()
+        draw(screen)
+        pygame.time.wait(20)
     pygame.quit()
 
 
 if __name__=='__main__':
+    global player
+    global asteroid
+    global screen
+
+    pygame.init()
+
+    screen = pygame.display.set_mode([Screen_Width, Screen_Height])
+    player = Player()
+    asteroid = Asteroid()
+
     run()
