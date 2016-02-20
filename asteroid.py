@@ -12,11 +12,11 @@ class Asteroid(object):
 
     def update(self):
         self.location.y += 10
-        if self.location.y > 500:\
+        if self.location.y > 500:
             self.reset()
 
     def reset(self):
-        
+        # We have reached the bottom of the screen so reset
         self.location.y = 0
         self.location.x = random.randint(0, 560)
 
