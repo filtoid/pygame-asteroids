@@ -4,7 +4,9 @@ import random
 
 class Asteroid(object):
     def __init__(self):
-        self.location = Location(100,0)
+        self.location = Location(0,0)
+        self.reset() #Randomly pick a starting location
+
         self.size = Location(40,40)
         self.sprite = pygame.sprite.Sprite()
         self.sprite.image = pygame.image.load("asteroid.png").convert()
