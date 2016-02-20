@@ -10,7 +10,23 @@ class Player(object):
         self.sprite.rect = self.sprite.image.get_rect()
 
     def update(self):
-        pass
+        if pygame.key.get_pressed()[pygame.K_LEFT] != 0:
+            self.location.x -= 5
+
+        if pygame.key.get_pressed()[pygame.K_RIGHT] != 0:
+            self.location.x += 5
+
+        if self.location.x > 560:
+            self.location.x = 560
+
+        if self.location.x < 0:
+            self.location.x = 0
 
     def draw(self, screen):
         screen.blit(self.sprite.image, self.location.get_loc())
+
+    def move_left(self):
+        pass
+
+    def move_right(self):
+        pass
