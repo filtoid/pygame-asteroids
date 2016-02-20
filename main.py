@@ -3,35 +3,36 @@ from player import Player
 from asteroid import Asteroid
 from pygame.locals import KEYDOWN
 
-
-Screen_Width = 600
-Screen_Height = 480
-
-
 def update():
     # Here we update the game to move elements
     player.update()
     asteroid.update()
-    if asteroid.check_collision(player)==True:
-        player.destroy()
+
+    #Check if the asteroid has hit the player
 
 def draw(screen):
     # Here we draw each component to the screen
     screen.fill([0, 0, 0])
-    player.draw(screen)
-    asteroid.draw(screen)
+
+    # Draw our player and asteroid objects
+
     pygame.display.update()
 
 def run():
+
     quit = False
     while quit == False:
+        # If we are told to quit then we will quit
         for event in pygame.event.get():
-            if event.type == KEYDOWN:
-                pass
             if event.type == pygame.QUIT:
                 quit = True
+
+        # Call our update function
         update()
+        # Call our draw function
         draw(screen)
+
+        # Wait before calculating the next movement
         pygame.time.wait(20)
     pygame.quit()
 
@@ -41,9 +42,14 @@ if __name__=='__main__':
     global asteroid
     global screen
 
-    pygame.init()
+    Screen_Width = 600
+    Screen_Height = 480
 
+    # Initialize the PyGame module
+    pygame.init()
     screen = pygame.display.set_mode([Screen_Width, Screen_Height])
+
+    # Make our player and asteroid objects
     player = Player()
     asteroid = Asteroid()
 

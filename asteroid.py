@@ -16,6 +16,7 @@ class Asteroid(object):
             self.reset()
 
     def reset(self):
+        
         self.location.y = 0
         self.location.x = random.randint(0, 560)
 
