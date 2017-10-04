@@ -5,7 +5,7 @@ class Player(object):
     def __init__(self):
         self.location = Location(50,440)
         self.size = Location(40, 40)
-        
+
         self.sprite = pygame.sprite.Sprite()
         self.sprite.image = pygame.image.load("player.png").convert()
         self.sprite.rect = self.sprite.image.get_rect()
@@ -28,6 +28,9 @@ class Player(object):
 
     def draw(self, screen):
         screen.blit(self.sprite.image, self.location.get_loc())
+
+    def reset(self):
+        self.destroy()
 
     def destroy(self):
         # Reset back to our location
