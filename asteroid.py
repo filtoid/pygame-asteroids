@@ -27,6 +27,6 @@ class Asteroid(object):
         diffx = self.location.x - obj.location.x
         diffy = obj.location.y - self.location.y
         if diffx < self.size.x and diffx > (self.size.x * -1):
-            if diffy < self.size.y:
+            if diffy < self.size.y and diffy > (self.size.y * -1):
                 return True
         return False

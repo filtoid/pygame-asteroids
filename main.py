@@ -12,8 +12,8 @@ def update():
     # Here we update the game to move elements
     player.update()
     asteroid.update()
-    if asteroid.check_collision(player)==True:
-        player.destroy()
+
+    #check if the asteroid and player have collided
 
 def draw(screen):
     # Here we draw each component to the screen

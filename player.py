@@ -11,10 +11,11 @@ class Player(object):
 
     def update(self):
         if pygame.key.get_pressed()[pygame.K_LEFT] != 0:
-            self.location.x -= 5
+            pass
 
         if pygame.key.get_pressed()[pygame.K_RIGHT] != 0:
-            self.location.x += 5
+            pass
+	
 
         # Make sure we can't leave the screen
         if self.location.x > 560:
